@@ -94,7 +94,20 @@ const projects = [
      title: 'Taxi Booking System',
      description: 'A web application to book taxis online with real-time tracking.',
      github: 'https://github.com/bharathdhana/Taxi-Booking-System',
+  },
+
+  {
+    title: 'Library Application',
+    description: 'Python based library application to manage books and users.',
+    github: 'https://github.com/bharathdhana/library-application',
+  },
+
+  {
+    title: 'Expense Tracker',
+    description: 'Python application to track and manage expenses efficiently.',
+    github: 'https://github.com/bharathdhana/expense-tracker',
   }
+
 
 ];
 
