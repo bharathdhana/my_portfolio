@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #007bff;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.project-card:hover, .cert-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.cert-card img {
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+button.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+button.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.main-content {
+  padding-bottom: 80px; 
+}
+
+.contact-card {
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
