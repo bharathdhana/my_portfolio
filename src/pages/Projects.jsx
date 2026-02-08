@@ -13,7 +13,7 @@ const projects = [
     title: 'Portfolio',
     description: 'My personal portfolio website.',
     github: 'https://github.com/bharathdhana/my_portfolio',
-    live: 'https://takealook-portfolio.netlify.app/'
+    live: 'https://bharathkumar-dev.netlify.app/'
   },
 
   {
