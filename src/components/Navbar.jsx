@@ -6,7 +6,7 @@ const Navigation = () => (
   <Navbar bg="dark" variant="dark" expand="lg">
     <Container>
       <Navbar.Brand as={Link} to="/">
-      takealook.com</Navbar.Brand>
+      bharathkumar</Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Nav className="ms-auto">
