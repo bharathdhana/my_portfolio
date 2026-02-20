@@ -1,4 +1,4 @@
-
+// Resume would be Change Anytime
 const Resume = () => (
   <section className="py-5 bg-light text-center">
     <h2 className="section-title mb-4">My Resume</h2>
