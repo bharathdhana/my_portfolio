@@ -20,24 +20,24 @@ const Home = () => (
           </h1>
 
           <p className="hero-subtitle" style={{ fontSize: '1.1rem', lineHeight: '1.6' }}>
-            I've completed my undergraduate studies and am eager to apply my skills and knowledge 
-            in real projects. I'm looking for opportunities that help me grow, learn, and gain 
+            I've completed my undergraduate studies and am eager to apply my skills and knowledge
+            in real projects. I'm looking for opportunities that help me grow, learn, and gain
             wisdom while making a meaningful impact.
           </p>
         </Col>
 
         {/* Image Section */}
-        <Col xs={12} md={6} className="text-center">
+        <Col xs={12} md={6} className="text-center d-flex justify-content-center align-items-center">
           <img
             src={profile}
             alt="Profile"
             className="rounded-circle shadow-lg img-fluid"
             style={{
-              width: '380px',
-              height  : '380px',
-              maxWidth: '100%',      // automatically scales down
-              maxHeight: '400px',          // fits all screens
-              objectFit: 'cover',         // maintain aspect ratio
+              width: '100%',
+              maxWidth: '380px',
+              aspectRatio: '1/1',
+              objectFit: 'cover',
+              objectPosition: 'center 20%',
               border: '5px solid #007bff'
             }}
           />
