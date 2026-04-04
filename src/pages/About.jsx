@@ -1,208 +1,146 @@
-import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import javaIcon from '../icons/java.png';
+import jsIcon from '../icons/js.png';
+import htmlIcon from '../icons/html.png';
+import cssIcon from '../icons/css-3.png';
+import reactIcon from '../icons/atom.png';
+import mysqlIcon from '../icons/mysql.png';
+import pythonIcon from '../icons/python.png';
+import springIcon from '../icons/spring.png';
 
+const skills = [
+  { label: 'Java', icon: javaIcon },
+  { label: 'Spring', icon: springIcon },
+  { label: 'Python', icon: pythonIcon },
+  { label: 'HTML', icon: htmlIcon },
+  { label: 'CSS', icon: cssIcon },
+  { label: 'JavaScript', icon: jsIcon },
+  { label: 'React', icon: reactIcon },
+  { label: 'MySQL', icon: mysqlIcon },
+];
+
+const pill = 'inline-flex items-center justify-center p-3 m-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition-colors';
+
+const Card = ({ borderColor, children }) => (
+  <div
+    className="mb-6 rounded-xl bg-white p-6 border border-slate-200"
+    style={{ borderLeft: `3px solid ${borderColor}` }}
+  >
+    {children}
+  </div>
+);
+
+const CardTitle = ({ color, children }) => (
+  <h3 className="text-xl font-bold mb-3" style={{ color }}>
+    {children}
+  </h3>
+);
+
+const AboutSkeleton = () => (
+  <div className="space-y-6">
+    {[1, 2, 3].map((item) => (
+      <div key={item} className="rounded-xl border border-slate-200 bg-white p-6 animate-pulse">
+        <div className="h-5 w-40 bg-slate-200 rounded mb-4" />
+        <div className="space-y-2">
+          <div className="h-3 w-full bg-slate-200 rounded" />
+          <div className="h-3 w-5/6 bg-slate-200 rounded" />
+          <div className="h-3 w-4/6 bg-slate-200 rounded" />
+        </div>
+      </div>
+    ))}
+  </div>
+);
 
 const About = () => {
+  const [isLoading, setIsLoading] = useState(true);
 
-    const pillStyle = {
-        display: 'inline-block',
-        padding: '6px 12px',
-        margin: '4px',
-        borderRadius: '20px',
-        backgroundColor: '#e0f7fa',
-        color: '#007bff',
-        fontWeight: '500',
-        fontSize: '0.95rem'
-    };
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 700);
+    return () => clearTimeout(timer);
+  }, []);
 
-    // Defines a separate style for the hobbies pill
-    const hobbyPillStyle = {
-        ...pillStyle, // Inherit base styles
-        backgroundColor: '#fff3e0', // Light orange/yellow background
-        color: '#ff9800', // Orange text
-    };
+  return (
+    <section
+      id="about"
+      className="py-16"
+    >
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">About</h2>
+          <p className="mt-3 text-slate-600">
+            Skills, internship experience, and academic background.
+          </p>
+        </div>
 
-    return (
-        <section
-            id="about"
-            className="py-5"
-            style={{ background: 'linear-gradient(to right, #f0f8ff, #ffffff)' }}
-        >
-            <Container>
-                <Row className="justify-content-center">
-                    <Col xs={12} md={8}>
+        {isLoading ? (
+          <AboutSkeleton />
+        ) : (
+          <>
 
-                        {/* 1. Skills Card (Unchanged) */}
-                        <Card
-                            className="mb-4 shadow-sm"
-                            style={{ borderLeft: '6px solid #007bff', borderRadius: '10px', padding: '20px' }}
-                        >
-                            <Card.Body>
-                                <Card.Title style={{ fontWeight: '700', fontSize: '1.5rem', color: '#007bff' }}>
-                                    💻 Skills
-                                </Card.Title>
+            <Card borderColor="#2563eb">
+              <CardTitle color="#2563eb">Skills</CardTitle>
+              <div className="flex flex-wrap justify-center">
+                {skills.map(({ label, icon }) => (
+                  <span key={label} className={pill} title={label}>
+                    {icon && <img src={icon} alt={label} className="w-8 h-8 object-contain" />}
+                  </span>
+                ))}
+              </div>
+            </Card>
 
-                                <div>
-                                    <span style={pillStyle}>Java</span>
-                                    <span style={pillStyle}>Python</span>
-                                    <span style={pillStyle}>HTML & CSS</span>
-                                    <span style={pillStyle}>JavaScript</span>
-                                    <span style={pillStyle}>React</span>
-                                    <span style={pillStyle}>MySQL</span>
+            <Card borderColor="#16a34a">
+              <CardTitle color="#16a34a">Experience</CardTitle>
+              <h5 className="font-semibold text-lg mt-2 mb-1 text-slate-900">Trainee Operator</h5>
+              <p className="text-slate-600 leading-relaxed">
+                Breaks India Private Limited, Chengalpet<br />
+                Worked in raw material stores and stock management, ensuring inventory accuracy
+                and warehouse maintenance.<br />
+                Duration: Nov 2020 - Nov 2022
+              </p>
+            </Card>
 
-                                </div>
-                            </Card.Body>
-                        </Card>
+            <Card borderColor="#ca8a04">
+              <CardTitle color="#ca8a04">Internships</CardTitle>
 
-                        {/* 2. Interests Card (Unchanged) */}
-                        <Card
-                            className="mb-4 shadow-sm"
-                            style={{ borderLeft: '6px solid #ff2bb1', borderRadius: '10px', padding: '20px' }}
-                        >
-                            <Card.Body>
-                                <Card.Title style={{ fontWeight: '700', fontSize: '1.5rem', color: '#ff2bb1' }}>
-                                    💡 Interests
-                                </Card.Title>
-                                <div>
-                                
-                                    <span style={pillStyle}>Software Engineering</span>
-                                    <span style={pillStyle}>Web Development</span>
-    
-                                </div>
-                            </Card.Body>
-                        </Card>
+              <h5 className="font-semibold text-lg mt-2 mb-1 text-slate-900">Web Development Intern</h5>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                Emglitz Technologies, Salem | Mode: Offline<br />
+                Built responsive websites using HTML, CSS, and JavaScript with a focus on
+                usability and cross-browser compatibility.<br />
+                Duration: Jul 2025 - Aug 2025
+              </p>
 
-                        {/* 3. Experience */}
-                        <Card
-                            className="mb-4 shadow-sm"
-                            style={{ borderLeft: '6px solid #28a745', borderRadius: '10px', padding: '20px' }}
-                        >
-                            <Card.Body>
-                                <Card.Title style={{ fontWeight: '700', fontSize: '1.5rem', color: '#28a745' }}>
-                                    💼 Experience
-                                </Card.Title>
+              <h5 className="font-semibold text-lg mb-1 text-slate-900">Python Developer Intern</h5>
+              <p className="text-slate-600 leading-relaxed">
+                Cybernaut Edutech LLP, Karur | Mode: Online<br />
+                Built Python-based projects including web scrapers, image gallery tools, and
+                beginner ML workflows using BeautifulSoup and Pandas.<br />
+                Duration: Jan 2025 - Apr 2025
+              </p>
+            </Card>
 
-                                <h5 style={{ fontWeight: '600', fontSize: '1.2rem', marginTop: '10px', marginBottom: '5px' }}>
-                                    Trainee Operator
-                                </h5>
-                                <p style={{ fontSize: '1.1rem', fontFamily: 'sans-serif' }}>
-                                    Breaks India Private Limited, Chengalpet<br />
-                                    Worked as a Trainee Operator in the Raw Material Stores, Stock Management,
-                                    ensuring quantity of materials and Warehouse maintenance.<br />
-                                    Duration : Nov 2020 - Nov 2022<br />
-                                </p>
-                            </Card.Body>
-                        </Card>
+            <Card borderColor="#9333ea">
+              <CardTitle color="#9333ea">Education</CardTitle>
 
-                        {/* 3 (a). Internships Card  */}
-                        <Card
-                            className="mb-4 shadow-sm"
-                            style={{ borderLeft: '6px solid #90a728ff', borderRadius: '10px', padding: '20px' }}
-                        >
-                            <Card.Body>
-                                <Card.Title style={{ fontWeight: '700', fontSize: '1.5rem', color: '#90a728ff' }}>
-                                    🧑‍🎓 Internships
-                                </Card.Title>
+              <h5 className="font-semibold text-lg mt-2 mb-1 text-slate-900">Engineering</h5>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                UG in Computer Science and Engineering,<br />
+                Gnanamani College of Technology, 2026<br />
+                CGPA: 8.23/10
+              </p>
 
-                                <h5 style={{ fontWeight: '600', fontSize: '1.2rem', marginTop: '10px', marginBottom: '5px' }}>
-                                    Web Development Intern
-                                </h5>
-                                <p style={{ fontSize: '1.1rem', fontFamily: 'sans-serif' }}>
-                                    Emglitz Technologies, Salem <br />
-                                    Mode : Offline<br />
-                                    Built responsive websites using HTML, CSS, and JavaScript, focusing on clean design, functionality, and cross-browser
-                                    compatibility.<br />
-                                    Duration : Jul 2025 - Aug 2025<br />
-                                </p>
-
-                                <h5 style={{ fontWeight: '600', fontSize: '1.2rem', marginTop: '10px', marginBottom: '5px' }}>
-                                    Python Developer Intern
-                                </h5>
-                                <p style={{ fontSize: '1.1rem', fontFamily: 'sans-serif' }}>
-                                    Cybernaut Edutech LLP, Karur <br />
-                                    Mode : Online<br />
-                                    Worked on Python-based projects like web scrapers, image gallery viewers, and basic ML models using libraries like
-                                    BeautifulSoup and Pandas<br />
-                                    Duration : Jan 2025 - Apr 2025<br />
-                                </p>
-                            </Card.Body>
-                        </Card>
-
-
-
-                        {/* 4. Education & Philosophy Card (Unchanged) */}
-                        <Card
-                            className="mb-4 shadow-sm"
-                            style={{ borderLeft: '6px solid #a72892ff', borderRadius: '10px', padding: '20px' }}
-                        >
-                            <Card.Body>
-                                <Card.Title style={{ fontWeight: '700', fontSize: '1.5rem', color: '#a72892ff' }}>
-                                    🎓 Education
-                                </Card.Title>
-
-                                <h5 style={{ fontWeight: '600', fontSize: '1.2rem', marginTop: '10px', marginBottom: '5px' }}>
-                                    Engineering
-                                </h5>
-                                <p style={{ fontSize: '1.1rem', fontFamily: 'sans-serif' }}>
-                                    UG in Computer Science and Engineering,<br />
-                                    Gnanamani College of Technology, 2026 <br />
-                                    CGPA : 8.23/10
-                                </p>
-
-                                <h5 style={{ fontWeight: '600', fontSize: '1.2rem', marginTop: '15px', marginBottom: '5px' }}>
-                                    Diploma
-                                </h5>
-                                <p style={{ fontSize: '1.1rem', fontFamily: 'sans-serif' }}>
-                                    Diploma in Computer Engineering,<br />
-                                    Muthayammal Polytechnic College, 2020 <br />
-                                    Percentage : 99%
-                                </p>
-
-                                <h5 style={{ fontWeight: '600', fontSize: '1.2rem', marginTop: '15px', marginBottom: '5px' }}>
-                                    12th Standard
-                                </h5>
-                                <p style={{ fontSize: '1.1rem', fontFamily: 'sans-serif' }}>
-                                    R.C.Sacred Heart Higher Secondary School,<br />
-                                    Rasipuram <br />
-                                    Percentage : 61%
-                                </p>
-
-                                <h5 style={{ fontWeight: '600', fontSize: '1.2rem', marginTop: '15px', marginBottom: '5px' }}>
-                                    10th Standard
-                                </h5>
-                                <p style={{ fontSize: '1.1rem', fontFamily: 'sans-serif' }}>
-                                    R.C.Sacred Heart Higher Secondary School,<br />
-                                    Rasipuram <br />
-                                    Percentage : 87%
-                                </p>
-
-                            </Card.Body>
-                        </Card>
-
-
-
-                        {/* 5. Hobbies Card (NEW) */}
-                        <Card
-                            className="mb-4 shadow-sm"
-                            style={{ borderLeft: '6px solid #ff9800', borderRadius: '10px', padding: '20px' }}
-                        >
-                            <Card.Body>
-                                <Card.Title style={{ fontWeight: '700', fontSize: '1.5rem', color: '#ff9800' }}>
-                                    🎨 Hobbies
-                                </Card.Title>
-                                <div>
-                                    <span style={hobbyPillStyle}>Reading Books</span>
-                                    <span style={hobbyPillStyle}>Writing</span>
-
-                                </div>
-                            </Card.Body>
-                        </Card>
-
-                    </Col>
-                </Row>
-            </Container>
-        </section>
-    );
+              <h5 className="font-semibold text-lg mb-1 text-slate-900">Diploma</h5>
+              <p className="text-slate-600 leading-relaxed">
+                Diploma in Computer Engineering,<br />
+                Muthayammal Polytechnic College, 2020<br />
+                Percentage: 99%
+              </p>
+            </Card>
+          </>
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default About;

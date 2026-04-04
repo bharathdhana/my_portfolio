@@ -5,8 +5,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Certificates from './pages/Certificates';
-import Contact from './pages/Contact';
-import Resume from './pages/Resume';
+import Blogs from './pages/Blogs';
 import './index.css';
 
 function App() {
@@ -18,8 +17,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/certificates" element={<Certificates />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/resume" element={<Resume />} />
+        <Route path="/blogs" element={<Blogs />} />
       </Routes>
     </Router>
 

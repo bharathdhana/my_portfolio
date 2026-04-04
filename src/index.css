@@ -1,63 +1,52 @@
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --ink: #0f172a;
+    --mist: #f8fafc;
+  }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 14% 10%, rgba(148, 163, 184, 0.09), transparent 34%),
+      radial-gradient(circle at 86% 16%, rgba(148, 163, 184, 0.07), transparent 30%),
+      linear-gradient(180deg, #fffdf8 0%, var(--mist) 100%);
+    min-height: 100vh;
+  }
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 40px;
-  color: #007bff;
+@layer utilities {
+  .hero-surface {
+    background:
+      radial-gradient(circle at 18% 14%, rgba(148, 163, 184, 0.08), transparent 38%),
+      radial-gradient(circle at 82% 10%, rgba(148, 163, 184, 0.06), transparent 36%),
+      linear-gradient(180deg, #fffdfa 0%, #f8fafc 100%);
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.7s ease-out forwards;
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.1);
+  }
 }
 
-.hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #007bff;
-  margin-bottom: 20px;
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-.project-card:hover, .cert-card:hover {
-  transform: translateY(-5px);
-  transition: 0.3s;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.cert-card img {
-  max-height: 200px;
-  object-fit: cover;
-}
-
-.contact-form {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-button.btn-primary {
-  background-color: #007bff;
-  border: none;
-}
-
-button.btn-primary:hover {
-  background-color: #0056b3;
-}
-
-.main-content {
-  padding-bottom: 80px; 
-}
-
-.contact-card {
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
