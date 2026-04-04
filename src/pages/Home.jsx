@@ -2,6 +2,7 @@ import profile from '../img/profile.jpg';
 import linkedinIcon from '../icons/linkedin.png';
 import githubIcon from '../icons/github.png';
 import devIcon from '../icons/dev.png';
+import { Link } from 'react-router-dom';
 
 const socialLinks = [
   {
@@ -57,18 +58,18 @@ const Home = () => (
         </div>
 
         <div className="flex items-center gap-3 flex-wrap justify-center">
-          <a
-            href="/projects"
+          <Link
+            to="/projects"
             className="rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-800"
           >
             Explore Projects
-          </a>
-          <a
-            href="/about"
+          </Link>
+          <Link
+            to="/about"
             className="rounded-full border border-slate-300 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-amber-400 hover:text-amber-700"
           >
             About Me
-          </a>
+          </Link>
         </div>
 
         <div className="flex items-center gap-4">
