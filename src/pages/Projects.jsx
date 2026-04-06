@@ -15,7 +15,7 @@ const projects = [
   { title: 'Taxi Booking System', description: 'A web application to book taxis online with real-time tracking.', github: 'https://github.com/bharathdhana/Taxi-Booking-System' },
   { title: 'Library Application', description: 'Python based library application to manage books and users.', github: 'https://github.com/bharathdhana/library-application' },
   { title: 'Disease Prediction System', description: 'Predicting chronic diseases using deep learning models.', github: 'https://github.com/bharathdhana/Disease-Prediction-System-fyp' },
-  { title: 'Personal Poetry Webpage', description: 'Showcases my art of poetry and human emotions.', github: 'https://github.com/bharathdhana/poetry-webpage', live: 'https://policytracker-58fs.onrender.com/'},
+  { title: 'Personal Poetry Webpage', description: 'Showcases my art of poetry and human emotions.', github: 'https://github.com/bharathdhana/poetry-webpage', live: 'https://dhanavan-writes.onrender.com/'},
 ];
 
 const Projects = () => (
