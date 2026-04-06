@@ -1,4 +1,4 @@
-import profile from '../img/profile.jpg';
+// import profile from '../img/profile.jpg';
 import linkedinIcon from '../icons/linkedin.png';
 import githubIcon from '../icons/github.png';
 import devIcon from '../icons/dev.png';
@@ -36,13 +36,13 @@ const Home = () => (
           Open To Full-Stack Opportunities
         </span>
 
-        <div className="flex flex-col items-center gap-6">
+        {/* <div className="flex flex-col items-center gap-6">
           <img
             src={profile}
             alt="Bharath Kumar profile"
             className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover object-[center_20%] border-4 border-amber-400"
           />
-        </div>
+        </div> */}
 
         <div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-4 tracking-tight">
