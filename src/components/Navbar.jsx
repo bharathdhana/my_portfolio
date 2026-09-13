@@ -1,51 +1,88 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import codeIcon from '../icons/code.png';
 
 const navLinks = [
-  { label: 'About', to: '/about' },
-  { label: 'Projects', to: '/projects' },
-  { label: 'Certifications', to: '/certificates' },
-  { label: 'Blogs', to: '/blogs' },
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Certifications', href: '#certificates' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const sectionIds = ['home', 'about', 'projects', 'certificates', 'contact'];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sectionIds[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sectionIds[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <nav className="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+    <header className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md text-white border-b border-slate-800 shadow-md">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
-          <Link
-            to="/"
-            className="flex items-center gap-2 text-blue-400 font-bold text-lg tracking-wide hover:text-blue-300 transition-colors"
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, '#home')}
+            className="flex items-center gap-2 text-amber-400 font-extrabold text-lg tracking-wide hover:text-amber-300 transition-colors"
           >
             <img src={codeIcon} alt="code icon" className="w-5 h-5 brightness-0 invert" />
-            bharath.dev
-          </Link>
+            <span>bharath<span className="text-white">.dev</span></span>
+          </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  location.pathname === link.to
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace('#', '');
+              const isActive = activeSection === sectionId;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                    isActive
+                      ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+          </nav>
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden text-gray-300 hover:text-white focus:outline-none"
+            className="md:hidden p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none"
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
           >
@@ -62,24 +99,28 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-gray-800 px-4 pb-4 space-y-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              onClick={() => setMenuOpen(false)}
-              className={`block px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                location.pathname === link.to
-                  ? 'bg-blue-600 text-white'
-                  : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-1 animate-fade-up">
+          {navLinks.map((link) => {
+            const sectionId = link.href.replace('#', '');
+            const isActive = activeSection === sectionId;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`block px-4 py-2.5 rounded-lg text-base font-semibold transition-colors ${
+                  isActive
+                    ? 'bg-amber-500 text-slate-950'
+                    : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 

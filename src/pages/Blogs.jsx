@@ -77,7 +77,7 @@ const Blogs = () => {
   }, []);
 
   return (
-    <section className="hero-surface py-16 min-h-screen">
+    <section id="blogs" className="hero-surface py-20 border-b border-slate-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Posts</h2>
