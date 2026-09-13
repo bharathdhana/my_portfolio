@@ -46,9 +46,9 @@ const projectsData = [
     tag: 'Interactive Web App',
     featured: true,
     description: 'A stylish personal website showcasing artistic poetry, literary craft, and human emotion.',
-    tech: ['React', 'JavaScript', 'CSS3', 'Render'],
+    tech: ['React', 'JavaScript', 'CSS3', 'Netlify'],
     github: 'https://github.com/bharathdhana/poetry-webpage',
-    live: 'https://dhanavan-writes.onrender.com/',
+    live: 'https://dhanavan-writes.netlify.app',
   },
   {
     title: 'Credit Card Approval using ML',
