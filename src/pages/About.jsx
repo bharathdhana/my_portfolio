@@ -3,7 +3,6 @@ import javaIcon from '../icons/java.png';
 import jsIcon from '../icons/js.png';
 import htmlIcon from '../icons/html.png';
 import cssIcon from '../icons/css-3.png';
-import reactIcon from '../icons/atom.png';
 import mysqlIcon from '../icons/mysql.png';
 import pythonIcon from '../icons/python.png';
 import springIcon from '../icons/spring.png';
@@ -15,7 +14,6 @@ const skills = [
   { label: 'Java', category: 'Backend', icon: javaIcon, bg: 'bg-orange-50 border-orange-200 text-orange-800' },
   { label: 'Spring', category: 'Backend', icon: springIcon, bg: 'bg-emerald-50 border-emerald-200 text-emerald-800' },
   { label: 'Python', category: 'Backend / Data', icon: pythonIcon, bg: 'bg-blue-50 border-blue-200 text-blue-800' },
-  { label: 'React', category: 'Frontend', icon: reactIcon, bg: 'bg-cyan-50 border-cyan-200 text-cyan-800' },
   { label: 'Angular', category: 'Frontend', icon: angularIcon, bg: 'bg-rose-50 border-rose-200 text-rose-800' },
   { label: 'JavaScript', category: 'Frontend', icon: jsIcon, bg: 'bg-amber-50 border-amber-200 text-amber-800' },
   { label: 'HTML', category: 'Frontend', icon: htmlIcon, bg: 'bg-red-50 border-red-200 text-red-800' },
@@ -35,7 +33,7 @@ const roadmapItems = [
     score: 'CGPA: 8.23 / 10',
     scoreColor: 'bg-purple-100 text-purple-800 border-purple-300',
     description: 'Undergraduate studies focusing on full-stack software development, machine learning, databases, and modern web frameworks.',
-    tags: ['Java', 'Spring', 'React', 'Full-Stack Web', 'Machine Learning'],
+    tags: ['Java', 'Spring', 'Full-Stack Web', 'Machine Learning'],
     iconType: 'degree',
     nodeColor: 'from-purple-500 to-pink-600',
   },

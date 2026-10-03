@@ -3,6 +3,16 @@ import githubIcon from '../icons/github.png';
 
 const projectsData = [
   {
+    title: 'AuraSquare',
+    category: 'web',
+    tag: 'Full-Stack E-Commerce',
+    featured: true,
+    description: 'Modern full-stack e-commerce platform engineered with a decoupled architecture featuring dynamic product catalog browsing, secure user authentication, interactive shopping cart, order management, and RESTful backend.',
+    tech: ['Java', 'Spring Boot', 'JavaScript', 'HTML5/CSS3', 'REST API', 'MySQL', 'Angular'],
+    githubFe: 'https://github.com/bharathdhana/AuraSquare',
+    githubBe: 'https://github.com/bharathdhana/AuraSquare-backend',
+  },
+  {
     title: 'ApexERP Enterprise Suite',
     category: 'web',
     tag: 'Enterprise Full-Stack ERP',
@@ -266,16 +276,41 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-2 pt-3 border-t border-slate-100">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
-                    >
-                      <img src={githubIcon} alt="GitHub" className="w-3.5 h-3.5 brightness-0 invert" />
-                      <span>Code Repo</span>
-                    </a>
+                  <div className="flex items-center gap-2 pt-3 border-t border-slate-100 flex-wrap">
+                    {project.githubFe && project.githubBe ? (
+                      <>
+                        <a
+                          href={project.githubFe}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 inline-flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+                        >
+                          <img src={githubIcon} alt="GitHub" className="w-3.5 h-3.5 brightness-0 invert" />
+                          <span>FE</span>
+                        </a>
+                        <a
+                          href={project.githubBe}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 inline-flex items-center justify-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold py-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+                        >
+                          <img src={githubIcon} alt="GitHub" className="w-3.5 h-3.5 brightness-0 invert" />
+                          <span>BE</span>
+                        </a>
+                      </>
+                    ) : (
+                      project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 inline-flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+                        >
+                          <img src={githubIcon} alt="GitHub" className="w-3.5 h-3.5 brightness-0 invert" />
+                          <span>Code Repo</span>
+                        </a>
+                      )
+                    )}
 
                     {project.live && (
                       <a
