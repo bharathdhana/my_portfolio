@@ -1,6 +1,7 @@
 import React from 'react';
 import linkedinIcon from '../icons/linkedin.png';
 import githubIcon from '../icons/github.png';
+import gmailIcon from '../icons/gmail.jpg';
 
 const Contact = () => {
   return (
@@ -23,7 +24,7 @@ const Contact = () => {
             href="https://www.linkedin.com/in/bharathkumarjn/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 shadow-md hover:shadow-amber-500/20"
+            className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 shadow-md hover:shadow-slate-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
           >
             <img src={linkedinIcon} alt="LinkedIn" className="w-5 h-5 object-contain" />
             <span>Connect on LinkedIn</span>
@@ -33,10 +34,20 @@ const Contact = () => {
             href="https://github.com/bharathdhana"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 shadow-md hover:shadow-slate-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
           >
             <img src={githubIcon} alt="GitHub" className="w-5 h-5 brightness-0 invert" />
             <span>Visit GitHub Profile</span>
+          </a>
+
+          <a
+            href="mailto:bharathdhanavan2612@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 shadow-md hover:shadow-slate-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+          >
+            <img src={gmailIcon} alt="Gmail" className="w-5 h-5 rounded-md bg-white p-0.5 object-contain" />
+            <span>Connect on Gmail</span>
           </a>
         </div>
 

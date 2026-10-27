@@ -1,8 +1,17 @@
 import React from 'react';
 import linkedinIcon from '../icons/linkedin.png';
 import githubIcon from '../icons/github.png';
+import gmailIcon from  '../icons/gmail.jpg';
+import leetCodeIcon from '../icons/leetcode.jpg';
 
 const socialLinks = [
+  {
+    label: 'LeetCode',
+    href: 'https://leetcode.com/u/bharathdhana/',
+    icon : <img src={leetCodeIcon} alt='LeetCode' className='w-6 h-6' />,
+    color : 'hover:bg-blue-50'
+  },
+
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/bharathkumarjn/',
@@ -14,6 +23,12 @@ const socialLinks = [
     href: 'https://github.com/bharathdhana',
     icon: <img src={githubIcon} alt="GitHub" className="w-6 h-6" />,
     color: 'hover:bg-gray-100',
+  },
+  {
+    label: 'Gmail',
+    href: 'mailto:bharathdhanavan2612@gmail.com',
+    icon: <img src={gmailIcon} alt="Gmail" className="w-6 h-6" />,
+    color: 'hover:bg-red-50',
   },
 ];
 
@@ -48,6 +63,9 @@ const Home = () => {
               in real projects. I'm looking for opportunities that help me grow, learn, and gain
               wisdom while making a meaningful impact.
             </p>
+            <br />
+            <p className='text-lg text-slate-600'>
+              Solved 200+ LeetCode problems</p>
           </div>
 
           <div className="flex items-center gap-3 flex-wrap justify-center">
